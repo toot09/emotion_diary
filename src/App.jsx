@@ -1,21 +1,34 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import New from "./pages/New";
 import Diary from "./pages/Diary";
 import NotFound from "./pages/NotFound";
 
 // 1. "/" : 모든 일기를 조회하는 Home페이지
-// 2. "/new" : 새 일기를 작성하는 new 페이지
-// 3. "/diary" : 특정 일기를 조회하는 diary 페이지
+// 2. "/new" : 새 일기를 작성하는 New 페이지
+// 3. "/diary" : 특정 일기를 조회하는 Diary 페이지
 function App() {
+  const nav = useNavigate();
+  const onClick = () => {
+    nav("/new");
+  };
+
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/new" element={<New />} />
-      <Route path="/diary" element={<Diary />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <>
+      <div>
+        <Link to={"/"}>Home</Link>
+        <Link to={"/new"}>New</Link>
+        <Link to={"/diary"}>Diary</Link>
+      </div>
+      <button onClick={onClick}>New page로 이동</button>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/new" element={<New />} />
+        <Route path="/diary" element={<Diary />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 

@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import New from "./pages/New";
 import Diary from "./pages/Diary";
 import NotFound from "./pages/NotFound";
+import Button from "./components/Button";
+import Header from "./components/Header";
 
 import { getEmotionImage } from "./util/get-emotion-image";
 
@@ -18,7 +20,12 @@ function App() {
 
   return (
     <>
-      {/* 이미지 로드 최적화 (캐시) */}
+      <Header
+        title={"Header"}
+        leftChild={<Button text={"Left"} />}
+        rightChild={<Button text={"Right}"} />}
+      />
+      {/*       
       <div>
         <img src={getEmotionImage(1)} alt="emotion1" />
         <img src={getEmotionImage(2)} alt="emotion2" />
@@ -32,7 +39,28 @@ function App() {
         <Link to={"/new"}>New</Link>
         <Link to={"/diary"}>Diary</Link>
       </div>
-      <button onClick={onClick}>New page로 이동</button>
+       */}
+      <Button
+        text={"123"}
+        type={"DEFAULT"}
+        onClick={() => {
+          console.log("123번 버튼클릭");
+        }}
+      />
+      <Button
+        text={"123"}
+        type={"POSITIVE"}
+        onClick={() => {
+          console.log("123번 버튼클릭");
+        }}
+      />
+      <Button
+        text={"123"}
+        type={"NEGATIVE"}
+        onClick={() => {
+          console.log("123번 버튼클릭");
+        }}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/new" element={<New />} />

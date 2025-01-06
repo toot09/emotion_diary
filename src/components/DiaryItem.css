@@ -43,6 +43,7 @@
 }
 
 .DiaryItem .info_section {
+  cursor: pointer;
   flex: 1;
 }
 

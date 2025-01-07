@@ -4,14 +4,12 @@ import { DiaryStateContext } from "../App";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import DiaryList from "../components/DiaryList";
-import { data } from "react-router-dom";
 
 function reducer(state, action) {
-  const changedDate = new Date(
+  return new Date(
     state.getFullYear(),
     state.getMonth() + (action.type === "INCREASE" ? 1 : -1)
   );
-  return changedDate;
 }
 
 const monthlyFilter = (pivotDate, data) => {
